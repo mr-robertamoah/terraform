@@ -1,0 +1,3 @@
+*/.terraform*
+*base.dot
+*/terraform.tfstate*
