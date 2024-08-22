@@ -10,16 +10,16 @@ terraform {
 
 # connecting to AWS
 provider "aws" {
-  region = "eu-north-1"
+  region = var.region
 }
 
 # create an EC2 instance
 resource "aws_instance" "base" {
-  ami           = "ami-04cdc91e49cb06165"
-  instance_type = "t3.micro"
+  ami           = var.ami
+  instance_type = var.instance_type
 
   tags = {
-    "name" = "test-terraform"
+    "${var.ec2_tags["name"]}" = "${var.ec2_tags["value"]}"
   }
 }
 
